@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel &amp; Hospitality Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14284B;--gold:#B8964E;--ink:#262b33;--mute:#7b8490;--line:#e6e1d3}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#1a1d22;overflow:hidden;font-family:'Prompt','Noto Sans SC',sans-serif}
+#stage{width:1280px;height:720px;position:absolute;left:50%;top:50%;background:#fff;overflow:hidden;color:var(--ink)}
+.s{position:absolute;inset:0;display:none;padding:80px 110px 92px}
+.s.on{display:block}
+.s::before{content:"";position:absolute;top:0;left:110px;width:72px;height:4px;background:var(--gold)}
+.s.dark{background:var(--navy);color:#f3efe4}
+.tag{position:absolute;top:30px;left:110px;font-size:16px;color:var(--gold);letter-spacing:.14em;font-weight:500}
+h1{font-size:64px;font-weight:700;line-height:1.2}
+h2{font-size:42px;font-weight:700;color:var(--navy);margin:14px 0 24px;line-height:1.25}
+.zh{font-family:'Noto Sans SC','Prompt',sans-serif;font-weight:700}
+.py{color:var(--mute);font-weight:400;letter-spacing:.02em}
+.dark .py{color:#b9bfcc}
+.ic{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.13em}
+.two{display:grid;grid-template-columns:380px 1fr;gap:80px;height:100%;align-items:center}
+.lf{border-right:1px solid var(--line);padding-right:40px}
+.lf .ico{font-size:52px;color:var(--navy)}.lf h2{margin:14px 0 10px;font-size:38px}
+.lf .big{font-size:54px;color:var(--navy);line-height:1.2}.lf .py{font-size:22px}
+.r{padding:22px 0;border-bottom:1px solid var(--line);font-size:27px;line-height:1.4}
+.r b{display:block;font-size:16px;color:var(--gold);font-weight:500;letter-spacing:.12em;margin-bottom:2px}
+.grid{display:grid;gap:28px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:0 4px 14px rgba(20,40,75,.06)}
+.card .e{font-size:34px;color:var(--navy)}.card .t{font-size:26px;font-weight:600;margin:6px 0;color:var(--navy)}
+.card .zh{font-size:26px;color:var(--navy)}.card .d{font-size:21px;color:#555;margin-top:4px}
+.v .zh{font-size:38px;color:var(--navy)}.v .py{font-size:21px}.v .t{font-size:24px;color:var(--ink);font-weight:400}
+table{border-collapse:collapse;width:100%;font-size:26px}
+th{color:var(--gold);font-weight:500;font-size:16px;letter-spacing:.12em;text-align:left;padding:10px 14px;border-bottom:1px solid var(--gold)}
+td{padding:18px 14px;border-bottom:1px solid var(--line)}td.zh{font-size:30px;color:var(--navy)}td.py{font-size:21px;font-weight:400}
+ul.l{list-style:none;padding:0;columns:2;column-gap:60px}
+ul.l li{font-size:30px;padding:22px 0 22px 52px;position:relative;border-bottom:1px solid var(--line);break-inside:avoid}
+ul.l li .e{position:absolute;left:0;top:22px;color:var(--navy);font-size:32px}
+.org{display:flex;flex-direction:column;align-items:center;margin-top:10px}
+.gm{background:var(--navy);color:#f3efe4;padding:14px 44px;border-radius:10px;font-size:24px;text-align:center;line-height:1.5}
+.gm .zh{color:#e3cf9d}
+.vl{width:1px;height:28px;background:var(--gold)}.hl{width:calc(100% - 124px);height:1px;background:var(--gold)}
+.dp{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;width:100%;margin-top:16px}
+.dp div{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 4px;text-align:center;font-size:17px;line-height:1.35}
+.dp div::before{content:"";position:absolute;top:-17px;left:50%;height:16px;width:1px;background:var(--gold)}
+.dp .zh{font-size:21px;color:var(--navy)}.dp i{display:block;font-style:normal;font-size:30px;color:var(--navy);margin-bottom:6px}
+.dlg{display:flex;flex-direction:column;gap:26px}
+.b{max-width:84%;padding:14px 24px;font-size:23px;line-height:1.4;border-radius:12px}
+.b .zh{font-size:32px}.b .py{font-size:19px}
+.who{font-size:15px;letter-spacing:.1em;color:var(--gold);font-weight:500}
+.g{align-self:flex-start;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold)}
+.w{align-self:flex-end;background:#eef1f6;border-left:4px solid var(--navy)}
+.w .zh{color:var(--navy)}
+.steps{display:flex;gap:16px;margin-top:10px}
+.st{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:12px;padding:22px 12px;text-align:center;font-size:21px;line-height:1.4}
+.st .e{display:block;font-size:40px;color:var(--navy);margin-bottom:6px}.st b{display:block;font-size:25px;color:var(--navy);margin-bottom:6px;font-weight:600}.st .zh{font-size:22px}
+.sec{display:flex;align-items:center;gap:56px;height:100%}
+.sec .n{font-size:150px;font-weight:300;color:var(--gold);line-height:1;padding-right:56px;border-right:1px solid rgba(184,150,78,.5)}
+.sec h1{letter-spacing:.06em;font-size:58px}.sec .th{font-size:32px;margin:14px 0 6px}.sec .zh{font-size:30px;color:#e3cf9d}.sec .py{font-size:21px}
+.ttl{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%}
+.ttl .ln{width:80px;height:1px;background:var(--gold);margin-bottom:34px}
+.ttl h1{color:#d9bf7c;letter-spacing:.14em;font-size:56px;font-weight:600}
+.ttl .th{font-size:34px;margin-top:22px}.ttl .zh{font-size:28px;color:#e3cf9d;margin-top:8px}.ttl .py{font-size:19px}
+.fill{display:flex;gap:44px;margin-top:56px}
+.fill span{width:230px;border-top:1px solid var(--gold);padding-top:6px;font-size:16px;color:#b9bfcc;letter-spacing:.1em}
+#ft{position:absolute;left:110px;right:110px;bottom:0;height:56px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:14px;color:var(--mute);letter-spacing:.16em;z-index:5}
+#ft div{display:flex;align-items:center;gap:16px}
+#ft button{font:500 14px 'Prompt',sans-serif;letter-spacing:.08em;background:none;color:var(--navy);border:1px solid var(--navy);border-radius:4px;padding:5px 16px;cursor:pointer}
+#ft button:hover{background:var(--navy);color:#fff}
+#pg{font-size:17px;color:var(--navy);letter-spacing:.1em;min-width:70px;text-align:center}
+.dk #ft{border-color:rgba(184,150,78,.4);color:#b9bfcc}.dk #ft button{color:#f3efe4;border-color:#b9bfcc}.dk #ft button:hover{background:#f3efe4;color:var(--navy)}.dk #pg{color:#d9bf7c}
+
+.ttl h1{font-size:48px}.ttl .th{font-size:28px;margin-top:16px}.ttl .zh{font-size:23px;margin-top:6px}.ttl .ln{margin-bottom:26px}
+.fill,.mem{display:grid;gap:34px;width:100%}.fill{grid-template-columns:repeat(3,1fr);margin-top:34px}.mem{grid-template-columns:repeat(3,1fr);gap:20px 34px}
+.ed{min-height:30px;border-bottom:1px solid var(--gold);font-size:20px;color:#f3efe4;outline:none;text-align:center;line-height:30px}
+.ed:focus{background:rgba(255,255,255,.06)}
+.ttl small{display:block;margin-top:5px;font-size:13px;color:#b9bfcc;letter-spacing:.1em}
+.mh{margin:32px 0 14px;font-size:15px;color:#d9bf7c;letter-spacing:.14em}.mh .py{letter-spacing:.04em;font-size:14px}
+.rp{display:grid;grid-template-columns:250px 1fr;gap:40px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center}
+.rl{display:grid;grid-template-columns:34px 1fr;gap:2px 12px}.rl .e{font-size:28px;color:var(--navy);grid-row:span 2}
+.rl b{font-size:19px;color:var(--navy);font-weight:600;line-height:1.3}.rl small{font-size:15px;color:var(--mute)}
+.rp.gu .e,.rp.gu b{color:var(--gold)}
+.rp .zh{font-size:29px;color:var(--navy);line-height:1.4}.rp .py{font-size:18px}.rp .th{font-size:21px;margin-top:2px}
+.rr{display:flex;gap:22px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.rr .n{color:var(--gold);font-size:22px;width:24px}.rr b{font-size:20px;font-weight:500;display:block;line-height:1.35}
+.rr .zh{font-size:19px;color:var(--navy)}.rr .py{font-size:16px}.sc{margin-top:22px;font-size:20px;color:#555;line-height:1.55}
+</style></head><body>
+<div id="stage"><div id="deck"></div>
+<div id="ft"><span>HOTEL &amp; HOSPITALITY SERVICE</span><div><button id="pv">Previous</button><span id="pg"></span><button id="nx">Next</button></div></div></div>
+<script>
+const ICO={"🏨": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\"/><path d=\"M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3\"/>", "⭐": "<path d=\"M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z\"/>", "🌴": "<circle cx=\"12\" cy=\"9\" r=\"3.5\"/><path d=\"M3 17c3-2 6 2 9 0s6-2 9 0M3 21c3-2 6 2 9 0s6-2 9 0\"/>", "🎨": "<path d=\"M12 3l8 6-8 12L4 9zM4 9h16\"/>", "🎒": "<path d=\"M8 9a4 4 0 018 0v11H8zM8 14h8M10 5V3h4v2\"/>", "🛎": "<path d=\"M3 20h18M5 17h14M6 17a6 6 0 0112 0M12 7V5M10 5h4\"/>", "🧹": "<path d=\"M3 18V8M3 14h18v4M21 14v-3a3 3 0 00-3-3h-7v6\"/><circle cx=\"7\" cy=\"11\" r=\"1.5\"/>", "🍽": "<path d=\"M7 3v8M5 3v5a2 2 0 004 0V3M7 11v10M17 3c-2 2-2.5 5-2.5 8H17v10\"/>", "📣": "<path d=\"M4 10v4l12 5V5zM16 9a3 3 0 010 6M7 15l1 5\"/>", "💰": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 7v10M14.5 9.5h-4a1.5 1.5 0 000 3h3a1.5 1.5 0 010 3h-4\"/>", "👥": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3 20c0-4 3-6 6-6s6 2 6 6M16 5a3 3 0 010 6M18 14c2 .8 3 3 3 6\"/>", "🔧": "<path d=\"M14 6a4 4 0 005 5l-9 9a2 2 0 01-3-3l9-9a4 4 0 00-2-2z\"/>", "🛡": "<path d=\"M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z\"/>", "👔": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-5 4-7 8-7s8 2 8 7\"/>", "😊": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M8 14c1 2 7 2 8 0M9 9.5v1M15 9.5v1\"/>", "🗣": "<path d=\"M4 5h16v11H10l-5 4v-4H4z\"/>", "💬": "<path d=\"M4 5h16v11H10l-5 4v-4H4z\"/>", "👂": "<path d=\"M8 10a4 4 0 118 0c0 3-3 3-3 6a2.5 2.5 0 01-5 0\"/>", "⏰": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "💪": "<path d=\"M12 20s-8-5-8-10a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 10c0 5-8 10-8 10z\"/>", "🙏": "<path d=\"M12 3v10M8 9l4 4 4-4M5 20h14\"/>", "⏳": "<path d=\"M7 3h10M7 21h10M8 3c0 5 4 5 4 9s-4 4-4 9M16 3c0 5-4 5-4 9s4 4 4 9\"/>", "📞": "<path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A15 15 0 013 6a2 2 0 012-2z\"/>", "✅": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M8 12.5l3 3 5-6\"/>", "🧭": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M15.5 8.5l-2 5-5 2 2-5z\"/>", "🤝": "<path d=\"M3 12l4-4 4 2 4-2 6 5-5 5-3-2-3 2z\"/>", "👤": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-5 4-7 8-7s8 2 8 7\"/>", "🏩": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\"/><path d=\"M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3\"/>", "🏢": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\"/><path d=\"M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3\"/>"};
+const EREG=new RegExp(Object.keys(ICO).join('|'),'g');
+const ic=h=>h.replace(/\uFE0F/g,'').replace(EREG,m=>'<svg class="ic" viewBox="0 0 24 24">'+ICO[m]+'</svg>');
+const info=(tag,t,e,zh,py,rows)=>({tag,h:`<div class="two"><div class="lf"><div class="ico">${e}</div><h2>${t}</h2><div class="zh big">${zh}</div><div class="py">${py}</div></div><div>${rows.map(r=>`<div class="r"><b>${r[0]}</b>${r[1]}</div>`).join('')}</div></div>`});
+const vocab=(tag,t,items,cols=2)=>({tag,h:`<h2>${t}</h2><div class="grid g${cols} v">${items.map(i=>`<div class="card"><div class="zh">${i[1]}</div><div class="py">${i[2]}</div><div class="t">${i[0]}</div></div>`).join('')}</div>`});
+const dlg=(tag,t,lines)=>({tag,h:`<h2>${t}</h2><div class="dlg">${lines.map(l=>`<div class="b ${l[0]?'g':'w'}"><div class="who">${l[0]?'👤 แขก 客人 kèrén':'🛎️ พนักงาน 员工 yuángōng'}</div><div class="zh">${l[1]}</div><div class="py">${l[2]}</div><div>${l[3]}</div></div>`).join('')}</div>`});
+const cards=(tag,t,items,cols=3)=>({tag,h:`<h2>${t}</h2><div class="grid g${cols}">${items.map(i=>`<div class="card"><div class="e">${i[0]}</div><div class="t">${i[1]}</div><div class="zh">${i[2]} <span class="py" style="font-size:19px;font-weight:400">${i[3]}</span></div><div class="d">${i[4]}</div></div>`).join('')}</div>`});
+const list=(tag,t,items)=>({tag,h:`<h2>${t}</h2><ul class="l">${items.map(i=>`<li><span class="e">${i[0]}</span>${i[1]}</li>`).join('')}</ul>`});
+const R=[['👤','แขกชาวจีน','客人','kèrén'],['🛎️','พนักงานต้อนรับ','前台接待员','qiántái jiēdàiyuán'],['🧹','พนักงานแม่บ้าน','客房服务员','kèfáng fúwùyuán'],['🍽️','พนักงานอาหารและเครื่องดื่ม','餐饮服务员','cānyǐn fúwùyuán'],['👔','หัวหน้าแผนกต้อนรับ','前台主管','qiántái zhǔguǎn'],['🛡️','เจ้าหน้าที่รักษาความปลอดภัย','保安员','bǎo\'ānyuán']];
+const role=(t,lines)=>({tag:'05 — Role-play',h:`<h2>${t}</h2><div>${lines.map(l=>{const r=R[l[0]];return `<div class="rp${l[0]?'':' gu'}"><div class="rl"><span class="e">${r[0]}</span><b>${r[1]}</b><small>${r[2]} ${r[3]}</small></div><div><div class="zh">${l[1]}</div><div class="py">${l[2]}</div><div class="th">${l[3]}</div></div></div>`}).join('')}</div>`});
+const slides=[
+{dark:1,h:`<div class="ttl"><div class="ln"></div><h1>Hotel &amp; Hospitality Service</h1><div class="th">โรงแรมและการบริการแขกชาวจีน</div><div class="zh">酒店与中国客人服务</div><div class="fill"><div><div class="ed" contenteditable="true"></div><small>ชื่อกลุ่ม</small></div><div><div class="ed" contenteditable="true"></div><small>ชั้นเรียน</small></div><div><div class="ed" contenteditable="true"></div><small>วันที่</small></div></div><div class="mh">Group Members / 小组成员 <span class="py">xiǎozǔ chéngyuán</span></div><div class="mem"><div><div class="ed" contenteditable="true"></div><small>1 · ชื่อ — บทบาท</small></div><div><div class="ed" contenteditable="true"></div><small>2 · ชื่อ — บทบาท</small></div><div><div class="ed" contenteditable="true"></div><small>3 · ชื่อ — บทบาท</small></div><div><div class="ed" contenteditable="true"></div><small>4 · ชื่อ — บทบาท</small></div><div><div class="ed" contenteditable="true"></div><small>5 · ชื่อ — บทบาท</small></div><div><div class="ed" contenteditable="true"></div><small>6 · ชื่อ — บทบาท</small></div></div></div>`},
+{h:`<div class="two"><div class="lf"><h2>Agenda</h2><div class="py">สารบัญ</div></div><div class="rt"><div class="r"><b>01 — Hotel Types</b>ประเภทของโรงแรมและที่พัก</div><div class="r"><b>02 — Departments</b>โครงสร้างองค์กรและแผนกในโรงแรม</div><div class="r"><b>03 — Service Etiquette</b>คำศัพท์และมารยาทการบริการ</div><div class="r"><b>04 — Guest Requests</b>คำถามที่พบบ่อยและการรับมือ</div></div></div>`},
+{dark:1,h:`<div class="sec"><div class="n">01</div><div><h1>Hotel Types</h1><div class="th">ประเภทของโรงแรมและที่พัก</div><div class="zh">酒店和住宿类型</div><div class="py">jiǔdiàn hé zhùsù lèixíng</div></div></div>`},
+cards('01 — Hotel Types','รู้จักคำศัพท์ 5 ประเภท',[['⭐','โรงแรม 5 ดาว','五星级酒店','wǔxīngjí jiǔdiàn','หรูหรา บริการครบ'],['🌴','รีสอร์ท','度假村','dùjiàcūn','พักผ่อน ใกล้ธรรมชาติ'],['🎨','โรงแรมบูติก','精品酒店','jīngpǐn jiǔdiàn','เล็ก มีเอกลักษณ์'],['🎒','โฮสเทล','青年旅舍','qīngnián lǚshè','ราคาประหยัด พักรวม'],['🏢','เซอร์วิสอพาร์ตเมนต์','服务式公寓','fúwùshì gōngyù','พักระยะยาว มีครัว']]),
+info('01 — Hotel Types','โรงแรม 5 ดาว','⭐','五星级酒店','wǔxīngjí jiǔdiàn',[['คืออะไร','โรงแรมระดับสูงสุด มาตรฐานบริการเข้มงวด'],['บริการเด่น','สปา ฟิตเนส ห้องอาหารหลายร้าน คอนเซียร์จ'],['เหมาะกับ','นักธุรกิจ ครอบครัวที่ต้องการความหรู']]),
+info('01 — Hotel Types','รีสอร์ท','🌴','度假村','dùjiàcūn',[['คืออะไร','ที่พักเพื่อพักผ่อน อยู่ทะเลหรือภูเขา'],['บริการเด่น','ชายหาด สระว่ายน้ำ กิจกรรมทางน้ำ สปา'],['เหมาะกับ','คู่รัก ครอบครัว กลุ่มท่องเที่ยว']]),
+info('01 — Hotel Types','โรงแรมบูติก','🎨','精品酒店','jīngpǐn jiǔdiàn',[['คืออะไร','โรงแรมขนาดเล็ก ตกแต่งมีเอกลักษณ์'],['บริการเด่น','ดูแลใกล้ชิด ดีไซน์เฉพาะ คาเฟ่ในโรงแรม'],['เหมาะกับ','คนรุ่นใหม่ ชอบถ่ายรูป ชอบประสบการณ์แปลก']]),
+info('01 — Hotel Types','โฮสเทล','🎒','青年旅舍','qīngnián lǚshè',[['คืออะไร','ที่พักราคาถูก มีห้องรวมหลายเตียง'],['บริการเด่น','ห้องครัวส่วนกลาง Wi-Fi พื้นที่พบปะ'],['เหมาะกับ','นักท่องเที่ยวแบ็คแพ็ค นักเรียน นักศึกษา']]),
+info('01 — Hotel Types','เซอร์วิสอพาร์ตเมนต์','🏢','服务式公寓','fúwùshì gōngyù',[['คืออะไร','ห้องพักแบบอพาร์ตเมนต์ มีบริการแบบโรงแรม'],['บริการเด่น','ห้องครัว เครื่องซักผ้า ทำความสะอาดประจำ'],['เหมาะกับ','ผู้ที่พักนาน ทำงานต่างถิ่น ครอบครัวใหญ่']]),
+{tag:'01 — Hotel Types',h:`<h2>เปรียบเทียบ 5 ประเภท</h2><table><tr><th>ประเภท</th><th>จุดเด่น</th><th>ลูกค้าหลัก</th></tr><tr><td>⭐ 5 ดาว</td><td>หรู ครบ</td><td>นักธุรกิจ / VIP</td></tr><tr><td>🌴 รีสอร์ท</td><td>พักผ่อน</td><td>ครอบครัว / คู่รัก</td></tr><tr><td>🎨 บูติก</td><td>ดีไซน์เฉพาะ</td><td>คนรุ่นใหม่</td></tr><tr><td>🎒 โฮสเทล</td><td>ราคาประหยัด</td><td>แบ็คแพ็ค</td></tr><tr><td>🏢 เซอร์วิสฯ</td><td>มีครัว พักนาน</td><td>พักระยะยาว</td></tr></table>`},
+{dark:1,h:`<div class="sec"><div class="n">02</div><div><h1>Departments</h1><div class="th">โครงสร้างองค์กรและแผนกในโรงแรม</div><div class="zh">酒店组织结构与部门</div><div class="py">jiǔdiàn zǔzhī jiégòu yǔ bùmén</div></div></div>`},
+{tag:'02 — Departments',h:`<h2>แผนผังโรงแรมอย่างง่าย</h2><div class="org"><div class="gm">👔 ฝ่ายบริหาร / ผู้จัดการทั่วไป<br><span class="zh">总经理</span> <span class="py" style="font-size:20px">zǒngjīnglǐ</span></div><div class="vl"></div><div class="hl"></div><div class="dp"><div><i>🛎️</i>ส่วนหน้า<br><span class="zh">前台部</span></div><div><i>🧹</i>แม่บ้าน<br><span class="zh">客房部</span></div><div><i>🍽️</i>อาหารและเครื่องดื่ม<br><span class="zh">餐饮部</span></div><div><i>📣</i>การตลาดและขาย<br><span class="zh">市场销售部</span></div><div><i>💰</i>บัญชี<br><span class="zh">财务部</span></div><div><i>👥</i>บุคคล<br><span class="zh">人力资源部</span></div><div><i>🔧</i>ซ่อมบำรุง<br><span class="zh">工程部</span></div><div><i>🛡️</i>รักษาความปลอดภัย<br><span class="zh">安保部</span></div></div></div>`},
+info('02 — Departments','แผนกต้อนรับส่วนหน้า','🛎️','前台部','qiántái bù',[['หน้าที่','เช็คอิน เช็คเอาต์ รับจองห้อง'],['ตอบคำถาม','ให้ข้อมูล แนะนำที่เที่ยว รับเรื่องร้องเรียน'],['ช่วยลูกค้า','เป็นจุดติดต่อแรกและจุดสุดท้ายของแขก']]),
+info('02 — Departments','แผนกแม่บ้าน','🧹','客房部','kèfáng bù',[['หน้าที่','ทำความสะอาดห้อง เปลี่ยนผ้าปูที่นอน'],['เติมสิ่งของ','ผ้าเช็ดตัว น้ำดื่ม ของใช้ในห้องน้ำ'],['ช่วยลูกค้า','ให้ห้องสะอาด ปลอดภัย พร้อมพักผ่อน']]),
+info('02 — Departments','แผนกอาหารและเครื่องดื่ม','🍽️','餐饮部','cānyǐn bù',[['หน้าที่','ดูแลร้านอาหาร ห้องอาหารเช้า บาร์'],['บริการ','รับออเดอร์ เสิร์ฟอาหาร รูมเซอร์วิส'],['ช่วยลูกค้า','ให้ได้อาหารอร่อยตรงความต้องการ']]),
+cards('02 — Departments','แผนกอื่นที่ช่วยแขกทางอ้อม',[['📣','การตลาดและการขาย','市场销售部','shìchǎng xiāoshòu bù','โปรโมชั่น หาลูกค้ากลุ่มทัวร์'],['💰','บัญชี','财务部','cáiwù bù','ชำระเงิน ใบเสร็จ ภาษี'],['👥','บุคคล','人力资源部','rénlì zīyuán bù','สรรหา ฝึกอบรมพนักงาน'],['🔧','ซ่อมบำรุง','工程部','gōngchéng bù','แก้แอร์ ไฟ น้ำ ลิฟต์'],['🛡️','รักษาความปลอดภัย','安保部','ānbǎo bù','ดูแลความปลอดภัยของแขก'],['👔','ฝ่ายบริหาร','总经理办公室','zǒngjīnglǐ bàngōngshì','กำหนดนโยบาย ดูแลภาพรวม']]),
+{dark:1,h:`<div class="sec"><div class="n">03</div><div><h1>Service Etiquette</h1><div class="th">คำศัพท์และมารยาทการบริการพื้นฐาน</div><div class="zh">基本服务礼仪与用语</div><div class="py">jīběn fúwù lǐyí yǔ yòngyǔ</div></div></div>`},
+list('03 — Service Etiquette','มารยาทของพนักงานโรงแรม',[['😊','ยิ้มและทักทายก่อน'],['🗣️','พูดสุภาพ ใช้น้ำเสียงนุ่มนวล'],['👂','ตั้งใจฟังลูกค้า'],['👔','แต่งกายเรียบร้อย สะอาด'],['⏰','ตรงเวลา'],['💪','ช่วยเหลืออย่างกระตือรือร้น']]),
+vocab('03 — Service Etiquette','ทักทายและต้อนรับ',[['สวัสดีค่ะ/ครับ','您好','nín hǎo'],['ยินดีต้อนรับ','欢迎光临','huānyíng guānglín'],['มีอะไรให้ช่วยไหมคะ/ครับ','请问有什么可以帮您？','qǐngwèn yǒu shénme kěyǐ bāng nín?'],['นี่คือบัตรห้องของคุณ','这是您的房卡','zhè shì nín de fángkǎ']]),
+vocab('03 — Service Etiquette','ขอบคุณ ขอโทษ ขอเวลา',[['ขอบคุณค่ะ/ครับ','谢谢','xièxie'],['ขอโทษค่ะ/ครับ','对不起','duìbuqǐ'],['โปรดรอสักครู่','请稍等','qǐng shāo děng'],['ไม่เป็นไรค่ะ/ครับ','不客气','bú kèqi']]),
+vocab('03 — Service Etiquette','ประโยคที่ใช้บ่อยที่เคาน์เตอร์',[['กรุณาแสดงพาสปอร์ต','请出示您的护照','qǐng chūshì nín de hùzhào'],['ขอให้พักให้สบาย','祝您入住愉快','zhù nín rùzhù yúkuài'],['เชิญทางนี้ค่ะ/ครับ','请这边走','qǐng zhèbiān zǒu'],['ไว้พบกันใหม่','再见，欢迎再来','zàijiàn, huānyíng zài lái']]),
+{dark:1,h:`<div class="sec"><div class="n">04</div><div><h1>Guest Requests</h1><div class="th">คำถามที่พบบ่อยและความต้องการของแขก</div><div class="zh">常见问题与客人需求</div><div class="py">chángjiàn wèntí yǔ kèrén xūqiú</div></div></div>`},
+{tag:'04 — Guest Requests',h:`<h2>คำขอที่แขกมักพูด</h2><table><tr><th>ไทย</th><th>中文</th><th>Pinyin</th></tr><tr><td>เช็คอิน</td><td class="zh">入住</td><td class="py">rùzhù</td></tr><tr><td>เช็คเอาต์</td><td class="zh">退房</td><td class="py">tuìfáng</td></tr><tr><td>ขอ Wi-Fi</td><td class="zh">请问Wi-Fi密码是什么？</td><td class="py">qǐngwèn Wi-Fi mìmǎ shì shénme?</td></tr><tr><td>ขอผ้าเช็ดตัวเพิ่ม</td><td class="zh">请再给我一条毛巾</td><td class="py">qǐng zài gěi wǒ yī tiáo máojīn</td></tr></table>`},
+{tag:'04 — Guest Requests',h:`<h2>คำขอที่แขกมักพูด (ต่อ)</h2><table><tr><th>ไทย</th><th>中文</th><th>Pinyin</th></tr><tr><td>แอร์ไม่เย็น</td><td class="zh">空调不冷</td><td class="py">kōngtiáo bù lěng</td></tr><tr><td>ขอเปลี่ยนห้อง</td><td class="zh">我想换房间</td><td class="py">wǒ xiǎng huàn fángjiān</td></tr><tr><td>ถามที่เที่ยว</td><td class="zh">请问附近有什么好玩的？</td><td class="py">qǐngwèn fùjìn yǒu shénme hǎowán de?</td></tr></table>`},
+dlg('04 — Guest Requests','เช็คอิน',[[1,'我要入住。','wǒ yào rùzhù.','ฉันต้องการเช็คอิน'],[0,'欢迎光临！请出示您的护照。','huānyíng guānglín! qǐng chūshì nín de hùzhào.','ยินดีต้อนรับ กรุณาแสดงพาสปอร์ตค่ะ/ครับ']]),
+dlg('04 — Guest Requests','เช็คเอาต์',[[1,'我要退房。','wǒ yào tuìfáng.','ฉันต้องการเช็คเอาต์'],[0,'好的，请把房卡给我。谢谢光临！','hǎo de, qǐng bǎ fángkǎ gěi wǒ. xièxie guānglín!','ได้ค่ะ/ครับ ขอบัตรห้องด้วย ขอบคุณที่มาพัก']]),
+dlg('04 — Guest Requests','Wi-Fi และผ้าเช็ดตัว',[[1,'请再给我一条毛巾。','qǐng zài gěi wǒ yī tiáo máojīn.','ขอผ้าเช็ดตัวเพิ่มหนึ่งผืน'],[0,'好的，马上为您送去。','hǎo de, mǎshàng wèi nín sòngqù.','ได้ค่ะ/ครับ จะนำไปให้ทันที']]),
+dlg('04 — Guest Requests','แอร์ไม่เย็น',[[1,'空调不冷。','kōngtiáo bù lěng.','แอร์ไม่เย็น'],[0,'非常抱歉！我马上请工程部检查。','fēicháng bàoqiàn! wǒ mǎshàng qǐng gōngchéng bù jiǎnchá.','ขออภัยอย่างยิ่ง จะเรียกช่างมาตรวจทันที']]),
+dlg('04 — Guest Requests','ขอเปลี่ยนห้อง / ถามที่เที่ยว',[[1,'我想换房间。','wǒ xiǎng huàn fángjiān.','ฉันอยากเปลี่ยนห้อง'],[0,'好的，我帮您查一下有没有空房。','hǎo de, wǒ bāng nín chá yíxià yǒu méiyǒu kōngfáng.','ได้ค่ะ/ครับ ขอตรวจดูห้องว่างให้'],[1,'请问附近有什么好玩的？','qǐngwèn fùjìn yǒu shénme hǎowán de?','แถวนี้มีที่เที่ยวอะไรบ้าง']]),
+{tag:'04 — Guest Requests',h:`<h2>5 ขั้นตอนรับมือปัญหา</h2><div class="steps"><div class="st"><span class="e">🙏</span><b>1. ขอโทษ</b><span class="zh">对不起</span><br><span class="py">duìbuqǐ</span></div><div class="st"><span class="e">👂</span><b>2. รับฟัง</b>ฟังปัญหาให้ครบ</div><div class="st"><span class="e">⏳</span><b>3. ขอเวลา</b><span class="zh">请稍等</span><br><span class="py">qǐng shāo děng</span></div><div class="st"><span class="e">📞</span><b>4. เรียกแผนก</b>แม่บ้าน ช่าง ฯลฯ</div><div class="st"><span class="e">✅</span><b>5. แจ้งทางแก้</b>บอกแขกและติดตามผล</div></div>`},
+{tag:'05 — Role-play',h:`<div class="two"><div class="lf"><div class="ico">💬</div><h2>Role-play Simulation</h2><div class="zh big" style="font-size:44px">角色扮演</div><div class="py">juésè bànyǎn</div><div class="sc">แขกเช็คอิน พบว่าแอร์ไม่เย็น ขอเปลี่ยนห้องและสั่งอาหาร</div></div><div>${R.map((r,k)=>`<div class="rr"><span class="n">${k+1}</span><div><b>${r[1]}</b><div><span class="zh">${r[2]}</span> <span class="py">${r[3]}</span></div></div></div>`).join('')}</div></div>`},
+role("ฉาก 1: เช็คอิน · Check-in",[[0, "我要入住，我姓王。", "wǒ yào rùzhù, wǒ xìng Wáng.", "ฉันขอเช็คอิน ฉันแซ่หวัง"], [1, "欢迎光临！请出示您的护照。", "huānyíng guānglín! qǐng chūshì nín de hùzhào.", "ยินดีต้อนรับ กรุณาแสดงพาสปอร์ต"], [1, "这是您的房卡，祝您入住愉快。", "zhè shì nín de fángkǎ, zhù nín rùzhù yúkuài.", "นี่คือบัตรห้อง ขอให้พักให้สบาย"]]),
+role("ฉาก 2: แอร์ไม่เย็น · Problem",[[0, "你好，我房间的空调不冷。", "nǐ hǎo, wǒ fángjiān de kōngtiáo bù lěng.", "สวัสดี แอร์ในห้องฉันไม่เย็น"], [1, "非常抱歉！请稍等，我请前台主管来。", "fēicháng bàoqiàn! qǐng shāo děng, wǒ qǐng qiántái zhǔguǎn lái.", "ขออภัยอย่างยิ่ง โปรดรอสักครู่ จะเชิญหัวหน้าแผนกมา"], [0, "我想换房间。", "wǒ xiǎng huàn fángjiān.", "ฉันอยากเปลี่ยนห้อง"]]),
+role("ฉาก 3: เปลี่ยนห้อง · Room change",[[4, "非常抱歉！我马上帮您换房间。请客房部准备新房间。", "fēicháng bàoqiàn! wǒ mǎshàng bāng nín huàn fángjiān. qǐng kèfáng bù zhǔnbèi xīn fángjiān.", "ขออภัยอย่างยิ่ง จะเปลี่ยนห้องให้ทันที ขอให้แม่บ้านเตรียมห้องใหม่"], [2, "好的，我马上去准备。", "hǎo de, wǒ mǎshàng qù zhǔnbèi.", "ได้ค่ะ/ครับ จะไปเตรียมทันที"], [2, "新房间准备好了，空调很凉快。", "xīn fángjiān zhǔnbèi hǎo le, kōngtiáo hěn liángkuai.", "ห้องใหม่พร้อมแล้ว แอร์เย็นสบาย"]]),
+role("ฉาก 4: สั่งอาหารและพาไปห้อง · Food & escort",[[0, "我想点餐：一份炒饭和一杯热茶。", "wǒ xiǎng diǎncān: yí fèn chǎofàn hé yì bēi rèchá.", "ขอสั่งข้าวผัดหนึ่งจานและชาร้อนหนึ่งถ้วย"], [3, "好的，请稍等。二十分钟后送到您的房间。", "hǎo de, qǐng shāo děng. èrshí fēnzhōng hòu sòngdào nín de fángjiān.", "ได้ค่ะ/ครับ โปรดรอสักครู่ อีก 20 นาทีส่งถึงห้อง"], [5, "您好，我带您去新房间。请跟我来。", "nín hǎo, wǒ dài nín qù xīn fángjiān. qǐng gēn wǒ lái.", "สวัสดี ผมจะพาไปห้องใหม่ เชิญตามมา"]]),
+{h:`<h2>Summary</h2><div class="grid g2"><div class="card"><div class="e">🏨</div><div class="t">ประเภทที่พัก</div><div class="d">รู้จัก 5 ประเภทและลูกค้าเป้าหมาย</div></div><div class="card"><div class="e">🧭</div><div class="t">แผนกในโรงแรม</div><div class="d">แต่ละแผนกมีหน้าที่ช่วยแขกต่างกัน</div></div><div class="card"><div class="e">🤝</div><div class="t">มารยาทการบริการ</div><div class="d">ยิ้ม สุภาพ และใช้ 您好 / 谢谢</div></div><div class="card"><div class="e">💬</div><div class="t">การรับมือลูกค้า</div><div class="d">ขอโทษ ตรวจสอบ ประสานงาน แจ้งทางแก้</div></div></div><div class="zh" style="text-align:center;margin-top:22px;font-size:26px;color:var(--navy)">谢谢大家！<span class="py" style="font-size:18px"> xièxie dàjiā — ขอบคุณที่รับฟัง</span></div>`}
+];
+const deck=document.getElementById('deck'),st=document.getElementById('stage');
+slides.forEach(s=>{const d=document.createElement('section');d.className='s'+(s.dark?' dark':'');d.innerHTML=ic((s.tag?`<div class="tag">${s.tag}</div>`:'')+s.h);deck.appendChild(d)});
+const els=[...deck.children];let i=0;const p=n=>String(n).padStart(2,'0');
+function go(n){i=Math.max(0,Math.min(els.length-1,n));els.forEach((e,k)=>e.classList.toggle('on',k===i));st.classList.toggle('dk',!!slides[i].dark);document.getElementById('pg').textContent=p(i+1)+' / '+p(els.length);location.hash=i+1}
+document.getElementById('pv').onclick=()=>go(i-1);
+document.getElementById('nx').onclick=()=>go(i+1);
+addEventListener('keydown',e=>{if(e.target.isContentEditable)return;if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')go(i+1);if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);if(e.key==='Home')go(0);if(e.key==='End')go(els.length-1)});
+function fit(){const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform=`translate(-50%,-50%) scale(${k})`}
+addEventListener('resize',fit);fit();
+go((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>
